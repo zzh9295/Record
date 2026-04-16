@@ -1,4 +1,6 @@
 /*
+index.html是网站的默认首页文件，通常在用户访问域名时由服务器自动加载
+
 JavaScript是轻量级脚本语言，不具备开发操作系统的能力，
 只能来编写控制其他大型应用程序的脚本
 标识符数字不能开头
@@ -130,4 +132,140 @@ for (var i = 0; i < x; i++) {
     console.log(i);
     // 0 1 2 3 4 5 6 7 8 9
 }
+
+//打印九九乘法表
+var sum = 0;
+for (var i = 1; i <= 9; i++) {
+    document.write("<br>");
+    for (var j = 1; j <= i; j++) {
+        sum = i * j;
+        document.write(j + " * " + i + " = " + sum + "  ");
+    }
+}
+
+循环语句while
+所有的for循环都可以改成while循环
+while (条件) {
+    // 循环体
+}
+
+var i = 1;
+while (i <= 10) {
+    console.log(i);
+    i++;
+}
+
+break和continue
+break：结束整个循环
+continue：结束本次循环，继续下一次循环
+
+字符串
+单引号不能嵌套单引号，双引号不能嵌套双引号
+如果要嵌套，可以在引号前面使用转义字符\
+var str = "hello \"world\"";
+字符串默认只能一行显示，如果需要换行，可以使用反斜杠\
+var str = "hello \
+world";
+
+length：获取字符串的长度
+var str = "hello world";
+console.log(str.length); // 11
+
+charAt：获取指定位置的字符
+var str = "hello world";
+console.log(str.charAt(0)); // h
+或者
+//打印最后一个字符
+console.log(str.length); // 11
+console.log(str.charAt(str.length - 1)); // d
+超出范围会返回空字符串""
+
+concat：拼接字符串
+var str1 = "hello";
+var str2 = "world";
+var str3 = "!";
+var result = str1.concat(str2, str3);
+console.log(str1.concat(str2)); // helloworld
+不改变原有字符串，而是返回一个新的字符串
+可以连接多个字符串
+console.log(result); // helloworld!
+如果参数不是字符串，则将其转换为字符串再连接
++可以用来拼接字符串
+concat不管什么类型直接合并成字符串
++遇到数字类型直接做运算，遇到字符串和字符串相连接
+
+substring：截取字符串,不包含结束位置
+var str = "hello world";
+console.log(str.substring(0, 5)); // hello
+第二个位置不写，默认截取到最后
+console.log(str.substring(0)); // hello world
+
+substr：截取字符串,包含结束位置
+var str = "hello world";
+console.log(str.substr(0, 5)); // hello
+
+indexOf：查找字符串中指定字符的位置
+用于确定一个字符串在另一个字符串中第一次出现的位置，并返回位置索引
+如果返回-1，则表示字符串中不包含该字符
+var str = "hello world";
+console.log(str.indexOf("o")); // 4
+可以接受第二个参数，表示从该位置开始向后查找
+console.log(str.indexOf("o", 5)); // 7
+
+trim：去除字符串两端的空格
+var str = "  hello world  ";
+console.log(str.trim()); // hello world
+如果中间有空格，则不会去除
+
+ES6扩展方法
+trimStart：去除字符串开头的空格
+trimEnd：去除字符串结尾的空格
+
+spolt：将字符串分割成数组
+var str = "hello|world";
+console.log(str.split("|")); // ["hello", "world"]
+如果分割符是空字符串，则将每个字符都分割成一个数组元素
+console.log(str.split("")); // ["h", "e", "l", "l", "o", "|", "w", "o", "r", "l", "d"]
+如果省略分割符，则将整个字符串作为一个数组元素
+console.log(str.split()); // ["hello|world"]
+方法还可以接受第二个参数，表示返回数组的最大长度
+console.log(str.split("|", 1)); // ["hello"]
+
+数组(array)是按次排序的一组值，每个值的位置都有编号(从0开始)，整个数组用[]表示
+var arr = [1, 2, 3, 4, 5];
+也可以先定义一个空数组，然后再添加元素
+var arr = [];
+arr[0] = 1;
+arr[1] = 2;
+任何类型的数据都可以放入数组
+如果数组的元素是数组，则称这个数组为多维数组
+数组越界：访问数组中不存在的索引，不会报错，而是返回undefined
+
+数组的遍历
+var arr = [1, 2, 3, 4, 5];
+//for循环
+for (var i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+//while循环
+var i = 0;
+while (i < arr.length) {
+    console.log(arr[i]);
+    i++;
+}
+
+Array.isArray()：判断一个变量是否为数组
+typeof不能判断数组
+var arr = [1, 2, 3, 4, 5];
+console.log(Array.isArray(arr)); // true
+
+push()：向数组的末尾添加一个或多个元素，并返回新的长度,会改变原有数组
+var arr = [1, 2, 3, 4, 5];
+console.log(arr.push(6)); // 6
+console.log(arr); // [1, 2, 3, 4, 5, 6]
+
+pop()：删除数组的最后一个元素，并返回该元素,会改变原有数组
+var arr = [1, 2, 3, 4, 5];
+console.log(arr.pop()); // 5
+console.log(arr); // [1, 2, 3, 4]
 */

@@ -9,9 +9,18 @@
 
 <body>
     <script>
-
+        //打印九九乘法表
+        var sum = 0;
+        for (var i = 1; i <= 9; i++) {
+            document.write("<br>");
+            for (var j = 1; j <= i; j++) {
+                sum = i * j;
+                document.write(j + " * " + i + " = " + sum + "  ");
+            }
+        }
+        var str = "hello world";
+        console.log(str.indexOf("o", 5)); 
     </script>
 </body>
 
 </html>
-<!-- index.html是网站的默认首页文件，通常在用户访问域名时由服务器自动加载 -->
