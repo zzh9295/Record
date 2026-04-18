@@ -412,4 +412,88 @@ div1.style.fontSize = "20px"; // 设置字体大小
 div1.style.backgroundColor = "blue"; // 设置背景颜色    
 div1.style.display = "none"; // 隐藏元素
 div1.style.display = "block"; // 显示元素
+
+事件：事件是用户与网页交互时发生的事情，例如点击按钮、滚动页面、输入文本等
+HTML事件
+<button onClick="clickHandler()">按钮</button>
+<script>
+    function clickHandler() {
+        console.log("按钮被点击了");
+    }
+</script>
+HTML优缺点：优点是简单易用，缺点是代码与HTML混在一起，不利于维护
+
+DOM0级事件
+var btn = document.getElementById("myBtn");
+btn.onclick = function() {
+    console.log("按钮被点击了");
+}
+DOM0级事件只能添加一个事件处理程序，后添加的会覆盖先添加的
+
+DOM2级事件
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", function() {
+    console.log("按钮被点击了");
+})
+DOM2级事件可以添加多个事件处理程序，按添加顺序依次执行
+
+Event事件对象
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", function(event) {
+    console.log("event");
+})
+
+Event.target
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", function(event) {
+    console.log(event.target); // 获取事件的目标元素
+})
+
+Event.preventDefault()
+var link = document.getElementById("myLink");
+link.addEventListener("click", function(event) {
+    event.preventDefault(); // 阻止默认行为
+})
+
+Event.stopPropagation()
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", function(event) {
+    event.stopPropagation(); // 阻止事件冒泡
+})
+
+键盘事件：键盘事件是用户按下或释放键盘上的键时触发的事件
+onkeydown：按下键盘时触发
+onkeyup：松开键盘时触发
+onkeypress：按下有值的键时触发，不识别功能键（Ctrl、Shift等）
+
+鼠标事件：鼠标事件是用户与鼠标交互时触发的事件
+onclick：单击鼠标左键时触发
+ondblclick：双击鼠标左键时触发
+onmousedown：按下鼠标按钮时触发
+onmouseup：松开鼠标按钮时触发
+onmousemove：鼠标移动时触发
+onmouseover：鼠标移入元素时触发
+onmouseout：鼠标移出元素时触发
+
+表单事件
+input事件：当输入框的值发生变化时触发
+var username = document.getElementById("username");
+username.oninput = function(e){
+    console.log(e.target.value);//读取数据
+}
+
+定时器setTimeout()：在指定时间后执行一次函数
+var timer = setTimeout(function() {
+    console.log("Hello, world!");
+}, 1000); // 1秒后执行函数
+clearTimeout(timer)：清除定时器
+
+定时器setInterval()：在指定时间间隔内重复执行函数
+var timer = setInterval(function() {
+    console.log("Hello, world!");
+}, 1000); // 每秒执行一次函数
+clearInterval(timer)：清除定时器
+
+防抖：在指定时间内只执行一次函数，如果再次触发，则重新计时
+节流：在指定时间内只执行一次函数，如果再次触发，则不执行
 */
