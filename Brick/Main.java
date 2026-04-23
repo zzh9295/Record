@@ -5,9 +5,19 @@ import javax.swing.*;
  */
 public class Main {
     public static void main(String[] args) {
-         // 创建一个JFrame窗口对象，标题为"Brick Breaker Game"
+        // 创建一个名为 "Brick Breaker Game" 的 JFrame 窗口
          JFrame frame = new JFrame("Brick Breaker Game");
-         // 设置窗口可见
+         GamePanel game = new GamePanel();
+         frame.add(game);
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // 设置窗口关闭操作为退出程序
+         frame.setResizable(false);
+        // 设置窗口不可调整大小
+         frame.pack();
+        // 自动调整窗口大小以适应其添加的组件
+         frame.setLocationRelativeTo(null);
+        // 将窗口居中显示
          frame.setVisible(true);
+
     }
 }
