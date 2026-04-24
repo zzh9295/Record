@@ -6,10 +6,10 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         // 创建一个名为 "Brick Breaker Game" 的 JFrame 窗口
-         JFrame frame = new JFrame("Brick Breaker Game");
-         GamePanel game = new GamePanel();
-         frame.add(game);
-         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         JFrame frame = new JFrame("Brick Breaker Game");  // 创建游戏主窗口
+         GamePanel game = new GamePanel();               // 创建游戏面板对象
+         frame.add(game);                               // 将游戏面板添加到窗口中
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // 设置窗口关闭操作为退出程序
         // 设置窗口关闭操作为退出程序
          frame.setResizable(false);
         // 设置窗口不可调整大小
