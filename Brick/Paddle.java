@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Paddle extends Rectangle {    
     int xVelocity;
-    private final int SPEED = 10;
+    private final int SPEED = 10; //速度修改无效
     private final int BOARD_WIDTH;
     
     // 新增：记录按键状态
