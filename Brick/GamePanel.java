@@ -13,6 +13,7 @@ public class GamePanel extends JPanel implements ActionListener,KeyListener {
 
     private Timer timer;
     private Paddle paddle;
+    private Ball ball;
     public GamePanel() {
         // 设置面板大小
         this.setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
@@ -23,6 +24,7 @@ public class GamePanel extends JPanel implements ActionListener,KeyListener {
         this.addKeyListener(this);
 
         paddle = new Paddle(BOARD_WIDTH, BOARD_HEIGHT);
+        ball = new Ball(BOARD_WIDTH, BOARD_HEIGHT);
 
         timer = new Timer(10,this);
         // 启动定时器   
@@ -31,6 +33,8 @@ public class GamePanel extends JPanel implements ActionListener,KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         paddle.move(); // 移动挡板
+        ball.move(); // 移动小球
+        ball.checkWallCollision(); // 检测小球是否碰到墙壁
         repaint(); // 请求重绘面板
     }
 
@@ -38,6 +42,7 @@ public class GamePanel extends JPanel implements ActionListener,KeyListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // 调用父类的paintComponent方法
         paddle.draw(g); // 绘制挡板
+        ball.draw(g); // 绘制小球
     }
 
     @Override
